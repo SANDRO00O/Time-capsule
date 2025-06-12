@@ -107,8 +107,8 @@
             position: relative;
         }
         
-        .section-header h2 {
-            font-size: 42px;
+         h2 {
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 20px;
             color: var(--light-color);
@@ -117,7 +117,7 @@
             position: relative;
         }
         
-        .section-header h2::after {
+         h2::after {
             content: '';
             position: absolute;
             bottom: -10px;
@@ -184,13 +184,12 @@
             min-width: 120px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: var(--shadow);
         }
         
         .countdown-number {
             font-size: 40px;
             font-weight: 700;
-            color: var(--secondary-color);
+            color: var(--light-color);
         }
         
         .countdown-label {
@@ -467,27 +466,28 @@
                 The specters of 2025 are etched into digital shards, groaning with memories tainted by city smoke and ocean tears,
                 and empty pockets groaning under poverty’s weight, while stolen laughter is tainted by corrupt ideologies.
             </p>
-            
+            <h2 class="ar-text">تاريخ الأطلاق</h2>
+            <h2 class="en-text" style="display: none;">Release date  </h2>
             <div class="countdown">
                 <div class="countdown-item">
-                    <div class="countdown-number" id="years">25</div>
-                    <div class="countdown-label ar-text">سنوات</div>
-                    <div class="countdown-label en-text" style="display: none;">Years</div>
+                    <div class="countdown-number" id="years">2025</div>
+                    <div class="countdown-label ar-text">السنة</div>
+                    <div class="countdown-label en-text" style="display: none;">Year</div>
                 </div>
                 <div class="countdown-item">
-                    <div class="countdown-number" id="months">00</div>
-                    <div class="countdown-label ar-text">أشهر</div>
-                    <div class="countdown-label en-text" style="display: none;">Months</div>
+                    <div class="countdown-number" id="months">06</div>
+                    <div class="countdown-label ar-text">الشهر</div>
+                    <div class="countdown-label en-text" style="display: none;">Month</div>
                 </div>
                 <div class="countdown-item">
-                    <div class="countdown-number" id="days">00</div>
-                    <div class="countdown-label ar-text">أيام</div>
-                    <div class="countdown-label en-text" style="display: none;">Days</div>
+                    <div class="countdown-number" id="days">12</div>
+                    <div class="countdown-label ar-text">اليوم</div>
+                    <div class="countdown-label en-text" style="display: none;">Day</div>
                 </div>
                 <div class="countdown-item">
-                    <div class="countdown-number" id="hours">00</div>
-                    <div class="countdown-label ar-text">ساعات</div>
-                    <div class="countdown-label en-text" style="display: none;">Hours</div>
+                    <div class="countdown-number" id="hours">1:28</div>
+                    <div class="countdown-label ar-text">الساعة</div>
+                    <div class="countdown-label en-text" style="display: none;">Hour</div>
                 </div>
             </div>
             
@@ -892,34 +892,7 @@
         });
         
         // Countdown Timer
-        function updateSiteAge() {
-    const launchDate = new Date('June 12, 2025 00:00:00'); //  يوم إطلاق الموقع
-    const now = new Date();
-    
-    let diff = now - launchDate;
-    
-    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-    diff -= years * 1000 * 60 * 60 * 24 * 365.25;
-    
-    const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
-    diff -= months * 1000 * 60 * 60 * 24 * 30.44;
-    
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    diff -= days * 1000 * 60 * 60 * 24;
-    
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    
-    document.getElementById('years').textContent = years.toString().padStart(2, '0');
-    document.getElementById('months').textContent = months.toString().padStart(2, '0');
-    document.getElementById('days').textContent = days.toString().padStart(2, '0');
-    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-}
-
-// أول تحديث
-updateSiteAge();
-
-// تحديث كل ساعة
-setInterval(updateSiteAge, 3600000);
+        
 
 // التمرير السلس (كما هو لديك)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
