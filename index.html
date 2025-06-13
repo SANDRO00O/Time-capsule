@@ -50,6 +50,7 @@
         }
         
         .language-toggle {
+            direction: ltr !important;
             position: fixed;
             top: 20px;
             display: flex;
@@ -175,6 +176,8 @@
             justify-content: center;
             gap: 20px;
             margin: 40px 0;
+            direction: ltr !important;
+
         }
         
         .countdown-item {
@@ -840,69 +843,70 @@
             <script>
                 // Language Toggle
                 document.querySelectorAll('.lang-btn').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const lang = this.getAttribute('data-lang');
-                        
-                        // Update active button
-                        document.querySelectorAll('.lang-btn').forEach(btn => {
-                            btn.classList.remove('active');
-                        });
-                        this.classList.add('active');
-                        
-                        // Show/hide language content
-                        if (lang === 'ar') {
-                            document.documentElement.dir = 'rtl';
-                            document.documentElement.lang = 'ar';
-                            
-                            // إرجاع الخط إلى الوضع الافتراضي
-                            
-                            document.querySelectorAll('.ar-text').forEach(el => {
-                                el.style.display = 'block';
-                            });
-                            document.querySelectorAll('.en-text').forEach(el => {
-                                el.style.display = 'none';
-                            });
-                            
-                            if (!window.matchMedia('(max-width: 768px)').matches) {
-                                document.querySelectorAll('.timeline-item').forEach((item, index) => {
-                                    item.style.left = '';
-                                    item.style.right = '';
-                                    if ((index + 1) % 2 === 0) {
-                                        item.style.right = '0%';
-                                    } else {
-                                        item.style.left = '50%';
-                                    }
-                                });
-                            }
-                            
-                        } else {
-                            document.documentElement.dir = 'ltr';
-                            document.documentElement.lang = 'en';
-                            
-                            // تغيير الخط إلى Montserrat
-                            
-                            
-                            document.querySelectorAll('.ar-text').forEach(el => {
-                                el.style.display = 'none';
-                            });
-                            document.querySelectorAll('.en-text').forEach(el => {
-                                el.style.display = 'block';
-                            });
-                            
-                            if (!window.matchMedia('(max-width: 768px)').matches) {
-                                document.querySelectorAll('.timeline-item').forEach((item, index) => {
-                                    item.style.left = '';
-                                    item.style.right = '';
-                                    if ((index + 1) % 2 === 0) {
-                                        item.style.left = '50%';
-                                    } else {
-                                        item.style.right = '0%';
-                                    }
-                                });
-                            }
-                        }
-                    });
+    button.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        
+        // Update active button
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        this.classList.add('active');
+        
+        // Show/hide language content
+        if (lang === 'ar') {
+            document.documentElement.dir = 'rtl';
+            document.documentElement.lang = 'ar';
+            
+            // استثناء language-toggle من تغيير الاتجاه
+            document.querySelector('.language-toggle')?.setAttribute('dir', 'ltr');
+            
+            document.querySelectorAll('.ar-text').forEach(el => {
+                el.style.display = 'block';
+            });
+            document.querySelectorAll('.en-text').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            if (!window.matchMedia('(max-width: 768px)').matches) {
+                document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                    item.style.left = '';
+                    item.style.right = '';
+                    if ((index + 1) % 2 === 0) {
+                        item.style.right = '0%';
+                    } else {
+                        item.style.left = '50%';
+                    }
                 });
+            }
+            
+        } else {
+            document.documentElement.dir = 'ltr';
+            document.documentElement.lang = 'en';
+            
+            // استثناء language-toggle من تغيير الاتجاه
+            document.querySelector('.language-toggle')?.setAttribute('dir', 'ltr');
+            
+            document.querySelectorAll('.ar-text').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelectorAll('.en-text').forEach(el => {
+                el.style.display = 'block';
+            });
+            
+            if (!window.matchMedia('(max-width: 768px)').matches) {
+                document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                    item.style.left = '';
+                    item.style.right = '';
+                    if ((index + 1) % 2 === 0) {
+                        item.style.left = '50%';
+                    } else {
+                        item.style.right = '0%';
+                    }
+                });
+            }
+        }
+    });
+});
                 
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', function(e) {
