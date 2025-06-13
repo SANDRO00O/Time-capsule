@@ -202,7 +202,7 @@
             padding: 30px;
             margin-bottom: 30px;
             backdrop-filter: blur(10px);
-            text-align: center ;
+            text-align: center;
         }
         
         .card h3 {
@@ -351,6 +351,11 @@
         .signature strong {
             color: var(--accent-color);
             font-weight: 600;
+        }
+        
+        ::selection {
+            background-color: #FFFFFF;
+            color: #121212;
         }
         
         /* Responsive */
@@ -824,6 +829,8 @@
                     </div>
                     
                     <div class="signature">
+                        <p class="ar-text" style="font-size: 0.8rem">لن اعيش طويلاً، ولاكن هذه ستفعل</p>
+                        <p class="en-text" style="display: none; font-size: 0.8rem">I won't live long, but this will.</p>
                         <p class="ar-text"><strong>– بواسطة كرار ناظم ناصر 2025–</strong></p>
                         <p class="en-text" style="display: none;"><strong>– By Karrar Nazim Nasir 2025 –</strong></p>
                     </div>
@@ -831,7 +838,6 @@
             </footer>
             
             <script>
-                // Language Toggle
                 // Language Toggle
                 document.querySelectorAll('.lang-btn').forEach(button => {
                     button.addEventListener('click', function() {
@@ -849,7 +855,6 @@
                             document.documentElement.lang = 'ar';
                             
                             // إرجاع الخط إلى الوضع الافتراضي
-                            document.body.style.fontFamily = '';
                             
                             document.querySelectorAll('.ar-text').forEach(el => {
                                 el.style.display = 'block';
@@ -899,10 +904,6 @@
                     });
                 });
                 
-                // Countdown Timer
-                
-                
-                // التمرير السلس (كما هو لديك)
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', function(e) {
                         e.preventDefault();
@@ -914,21 +915,6 @@
                             });
                         }
                     });
-                });
-                
-                // Smooth scrolling for navigation links
-                
-                
-                // Navigation effect on scroll
-                window.addEventListener('scroll', function() {
-                    const nav = document.querySelector('nav');
-                    if (window.scrollY > 100) {
-                        nav.style.backgroundColor = 'rgba(26, 37, 47, 0.98)';
-                        nav.style.padding = '15px 0';
-                    } else {
-                        nav.style.backgroundColor = 'rgba(26, 37, 47, 0.95)';
-                        nav.style.padding = '20px 0';
-                    }
                 });
             </script>
 </body>
