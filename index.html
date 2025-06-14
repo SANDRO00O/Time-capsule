@@ -177,7 +177,7 @@
             gap: 20px;
             margin: 40px 0;
             direction: ltr !important;
-
+            
         }
         
         .countdown-item {
@@ -816,7 +816,7 @@
                     </div>
                     
                     <div class="signature">
-                        <p class="ar-text" style="font-size: 0.8rem">لن اعيش طويلاً، ولاكن هذه ستفعل</p>
+                        <p class="ar-text" style="font-size: 0.8rem">لن اعيش طويلاً، ولاكن هذه ستفعل.</p>
                         <p class="en-text" style="display: none; font-size: 0.8rem">I won't live long, but this will.</p>
                         <p class="ar-text"><strong>– بواسطة كرار ناظم ناصر 2025–</strong></p>
                         <p class="en-text" style="display: none;"><strong>– By Karrar Nazim Nasir 2025 –</strong></p>
@@ -827,70 +827,70 @@
             <script>
                 // Language Toggle
                 document.querySelectorAll('.lang-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        const lang = this.getAttribute('data-lang');
-        
-        // Update active button
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        this.classList.add('active');
-        
-        // Show/hide language content
-        if (lang === 'ar') {
-            document.documentElement.dir = 'rtl';
-            document.documentElement.lang = 'ar';
-            
-            // استثناء language-toggle من تغيير الاتجاه
-            document.querySelector('.language-toggle')?.setAttribute('dir', 'ltr');
-            
-            document.querySelectorAll('.ar-text').forEach(el => {
-                el.style.display = 'block';
-            });
-            document.querySelectorAll('.en-text').forEach(el => {
-                el.style.display = 'none';
-            });
-            
-            if (!window.matchMedia('(max-width: 768px)').matches) {
-                document.querySelectorAll('.timeline-item').forEach((item, index) => {
-                    item.style.left = '';
-                    item.style.right = '';
-                    if ((index + 1) % 2 === 0) {
-                        item.style.right = '0%';
-                    } else {
-                        item.style.left = '50%';
-                    }
+                    button.addEventListener('click', function() {
+                        const lang = this.getAttribute('data-lang');
+                        
+                        // Update active button
+                        document.querySelectorAll('.lang-btn').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // Show/hide language content
+                        if (lang === 'ar') {
+                            document.documentElement.dir = 'rtl';
+                            document.documentElement.lang = 'ar';
+                            
+                            // استثناء language-toggle من تغيير الاتجاه
+                            document.querySelector('.language-toggle')?.setAttribute('dir', 'ltr');
+                            
+                            document.querySelectorAll('.ar-text').forEach(el => {
+                                el.style.display = 'block';
+                            });
+                            document.querySelectorAll('.en-text').forEach(el => {
+                                el.style.display = 'none';
+                            });
+                            
+                            if (!window.matchMedia('(max-width: 768px)').matches) {
+                                document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                                    item.style.left = '';
+                                    item.style.right = '';
+                                    if ((index + 1) % 2 === 0) {
+                                        item.style.right = '0%';
+                                    } else {
+                                        item.style.left = '50%';
+                                    }
+                                });
+                            }
+                            
+                        } else {
+                            document.documentElement.dir = 'ltr';
+                            document.documentElement.lang = 'en';
+                            
+                            // استثناء language-toggle من تغيير الاتجاه
+                            document.querySelector('.language-toggle')?.setAttribute('dir', 'ltr');
+                            
+                            document.querySelectorAll('.ar-text').forEach(el => {
+                                el.style.display = 'none';
+                            });
+                            document.querySelectorAll('.en-text').forEach(el => {
+                                el.style.display = 'block';
+                            });
+                            
+                            if (!window.matchMedia('(max-width: 768px)').matches) {
+                                document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                                    item.style.left = '';
+                                    item.style.right = '';
+                                    if ((index + 1) % 2 === 0) {
+                                        item.style.left = '50%';
+                                    } else {
+                                        item.style.right = '0%';
+                                    }
+                                });
+                            }
+                        }
+                    });
                 });
-            }
-            
-        } else {
-            document.documentElement.dir = 'ltr';
-            document.documentElement.lang = 'en';
-            
-            // استثناء language-toggle من تغيير الاتجاه
-            document.querySelector('.language-toggle')?.setAttribute('dir', 'ltr');
-            
-            document.querySelectorAll('.ar-text').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelectorAll('.en-text').forEach(el => {
-                el.style.display = 'block';
-            });
-            
-            if (!window.matchMedia('(max-width: 768px)').matches) {
-                document.querySelectorAll('.timeline-item').forEach((item, index) => {
-                    item.style.left = '';
-                    item.style.right = '';
-                    if ((index + 1) % 2 === 0) {
-                        item.style.left = '50%';
-                    } else {
-                        item.style.right = '0%';
-                    }
-                });
-            }
-        }
-    });
-});
                 
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', function(e) {
